@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panaderia</title>
+</head>
+<body>
+<h1>Panaderia Marisa</h1>
+
+
+<header>
+    <div class="caja">
+    <nav>
+        <ul>
+            <li>
+                <a href="C:\Users\yanil\OneDrive\Escritorio\proyecto.javaScript\listarProducto.html">Listar Producto</a></li>
+            <li>
+                <a href="C:\Users\yanil\OneDrive\Escritorio\proyecto.javaScript\agregarProducto.html">Agregar Producto</a></li>
+            <li>
+                <a href="C:\Users\yanil\OneDrive\Escritorio\proyecto.javaScript\listarcliente.html">Listar cliente</a></li>
+            <li>
+                <a href="C:\Users\yanil\OneDrive\Escritorio\proyecto.javaScript\agregarcliente.html">Agregar cliente</a></li>
+        </ul>
+    </nav>
+    </div>
+
+</header>
+<main>
+    <form>
+        <label for="nombrecliente"> Nombre cliente</label>
+        <input type="text" id="nombre" name="nombre">
+
+        <label for="telefono"> Telefono</label>
+        <input type="text" id="telefono" name="telefono">
+        <button type="button" onclick="guardarDatos()">Agregar</button>
+    
+    </form>
+</main>
+<script>
+
+    function guardarDatos() {
+            // Obtener los valores de los campos
+            const nombre = document.getElementById('nombre').value;
+            const telefono = document.getElementById('telefono').value;
+
+            // Crear un objeto con los datos
+            const cliente = {
+                nombre: nombre,
+                telefono: telefono
+            };
+
+            // Obtener los clientes existentes (si los hay)
+            let clientes = JSON.parse(localStorage.getItem('clientes')) || [];
+
+            // Agregar el nuevo cliente al array
+            clientes.push(nuevoCliente);
+
+            // Almacenar el array actualizado en localStorage
+            localStorage.setItem('clientes', JSON.stringify(clientes));
+
+            // Redirigir a la página de visualización
+            window.location.href = "listarCliente.html";
+}
+</script>
+
+</body>
+</html>
